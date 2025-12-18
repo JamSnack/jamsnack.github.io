@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+}
+
+a {
+    color: coral !important;
+}
+
+a:hover {
+    color: purple !important;
+}
+
+img {
+    transform: scale(1,1);
+    transition: 1s;
+}
+
+img:hover {
+    transform: scale(34,34);
+    transition: 1s;
+}
+
+.gream {
+    background-color: green;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgb(36, 3, 221);
+    padding: 25px;
+}
+
+.container {
+    background: coral !important;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgb(36, 3, 221);
+    padding: 25px;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
