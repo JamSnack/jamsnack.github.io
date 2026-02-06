@@ -1,6 +1,6 @@
 :root {
     --c_coal: rgba(0, 0, 0, 0.397);
-    --c_bkg: rgb(219, 219, 219);
+    --c_bkg: rgb(151, 175, 211);
     --c_blue: rgb(47, 0, 255);
     --c_purple: rgb(89, 0, 255);
     --c_red: rgb(255, 0, 34);
@@ -8,7 +8,7 @@
 
 
 body {
-    background-image: url("Images/itch_background_mini.png");
+    /*background-image: url("Images/itch_background_mini.png");*/
     background-repeat: repeat;
     background-size:cover;
     background-color: var(--c_bkg);
@@ -20,9 +20,29 @@ h1 {
 }
 
 p {
-    padding: 1%;
-    font-size: larger;
+    font-size: medium;
     font-weight: 400;
+    color: black;
+}
+
+a {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: xx-large;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 2px 2px 1px var(--c_coal);
+    color: rgb(49, 121, 255);
+}
+
+a:hover{
+    color: yellow;
+}
+
+nav {
+    margin:auto;
+    background-color: white;
+    max-width: 1000px;
 }
 
 .menu_background {
@@ -33,7 +53,7 @@ p {
     
     width: auto;
     border: 6px solid rgb(76, 0, 216);
-    border-radius: 12px;
+    border-radius: 2px;
 
     background-color: rgba(36, 36, 36, 0.719);
     box-shadow: 0px 0px 12px var(--c_coal);
@@ -42,15 +62,18 @@ p {
 }
 
 .menu_main {
-    margin: 2%;
-    padding: 4%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom:1%;
+    padding: 2em 2em;
     padding-top: 1%;
     padding-bottom: 2%;
     
     width: 96%;
-    border: 4px solid var(--c_blue);
-    border-top: 15px solid var(--c_blue);
-    border-radius: 12px;
+    max-width: 1000px;
+    border: 3px solid var(--c_blue);
+    border-top: 8px solid var(--c_blue);
+    border-radius: 2px;
 
     background-color: white;
     box-shadow: 8px 10px var(--c_coal);
@@ -61,17 +84,10 @@ p {
 .menu_important {
     text-align: center;
 
-    margin: 1%;
-    /*
-    padding: 2%;
-    padding-top: 1%;
-    padding-bottom: 2%;
-    */
-    
     width: 96%;
-    border: 4px solid var(--c_red);
-    border-top: 12px solid var(--c_red);
-    border-radius: 12px;
+    border: 3px solid var(--c_red);
+    border-top: 4px solid var(--c_red);
+    border-radius: 2px;
 
     background-color: var(--c_bkg);
     box-shadow: 4px 6px var(--c_coal);
@@ -86,7 +102,10 @@ p {
     color: white;
 }
 
+
 /*
+OLD 1
+
 body {
     margin: 0;
 }
