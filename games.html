@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Games — James Ragan</title>
+    <link href="index.css" rel="stylesheet">
+    <style>
+        /* ── PORTFOLIO GRID ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .portfolio-card {
+            background: var(--c_surface);
+            border: 1px solid var(--c_border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--c_accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(59,130,246,0.15);
+        }
+
+        .portfolio-card__thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #0d1117;
+            display: block;
+        }
+
+        .portfolio-card__thumb--placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1040 0%, #0d1117 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .portfolio-card__body {
+            padding: 1rem 1.1rem 1.1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .portfolio-card__title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--c_text);
+        }
+
+        .portfolio-card__year {
+            font-size: 0.78rem;
+            color: var(--c_highlight);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .portfolio-card__desc {
+            font-size: 0.85rem;
+            color: var(--c_muted);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            background: rgba(124,58,237,0.15);
+            border: 1px solid rgba(124,58,237,0.3);
+            color: #a78bfa;
+        }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--c_surface);
+            border: 1px solid var(--c_border);
+            border-top: 3px solid var(--c_accent);
+            border-radius: var(--radius);
+            max-width: 720px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+            animation: modal-in 0.18s ease;
+        }
+
+        @keyframes modal-in {
+            from { opacity: 0; transform: scale(0.96) translateY(10px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal__close {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.75rem 0.75rem 0;
+            background: var(--c_surface);
+            z-index: 1;
+        }
+
+        .modal__close button {
+            background: transparent;
+            border: 1px solid var(--c_border);
+            color: var(--c_muted);
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal__close button:hover {
+            border-color: var(--c_danger);
+            color: var(--c_danger);
+        }
+
+        .modal__media {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+            background: #0d1117;
+        }
+
+        .modal__media--placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1040 0%, #0d1117 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .modal__media iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            display: block;
+        }
+
+        .modal__body {
+            padding: 1.5rem 1.75rem 1.75rem;
+        }
+
+        .modal__meta {
+            font-size: 0.8rem;
+            color: var(--c_highlight);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
+        }
+
+        .modal__title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--c_text);
+            margin-bottom: 0.75rem;
+        }
+
+        .modal__desc {
+            color: var(--c_muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+        }
+
+        .modal__detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+            .modal__detail-grid { grid-template-columns: 1fr; }
+        }
+
+        .modal__detail {
+            background: var(--c_bkg);
+            border: 1px solid var(--c_border);
+            border-radius: 6px;
+            padding: 0.65rem 0.9rem;
+        }
+
+        .modal__detail-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--c_accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2rem;
+        }
+
+        .modal__detail-value {
+            font-size: 0.88rem;
+            color: var(--c_text);
+        }
+
+        .modal__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        /* ── FILTER BAR ── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .filter-btn {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--c_border);
+            background: transparent;
+            color: var(--c_muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--c_accent);
+            border-color: var(--c_accent);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-title">JamSnack</div>
+        <div class="site-subtitle">James Ragan &mdash; Game Developer &amp; Creative</div>
+    </header>
+
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!--<li><a href="index.html#games">Games</a></li> -->
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="games.html" class="active">Games</a></li>
+            <!--<li><a href="art.html">Artwork</a></li>
+            <li><a href="https://github.com/JamSnack" target="_blank">GitHub</a></li>
+            <li><a href="https://jamsnack.itch.io/" target="_blank">Games</a></li>
+            <li><a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></li>-->
+        </ul>
+    </nav>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Game Portfolio</h2>
+
+                <div class="filter-bar" id="filterBar"></div>
+                <div class="portfolio-grid" id="portfolioGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+        <div class="modal" id="modal">
+            <div class="modal__close">
+                <button id="modalClose" aria-label="Close">&times;</button>
+            </div>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 James Ragan &mdash; <a href="https://jamsnack.itch.io/" target="_blank">itch.io</a> &bull; <a href="https://github.com/JamSnack" target="_blank">GitHub</a> &bull; <a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></p>
+    </footer>
+
+    <script>
+    // ============================================================
+    //  GAME DATA — add a new object here to add a game.
+    //
+    //  Required fields:
+    //    title       (string)
+    //    year        (string or number)
+    //    shortDesc   (string)  — shown on card
+    //
+    //  Optional fields:
+    //    tags        (string[]) — used for filtering
+    //    engine      (string)
+    //    role        (string)
+    //    status      (string)  e.g. "Released", "In Development"
+    //    longDesc    (string)  — shown in modal (supports \n for line breaks)
+    //    thumb       (string)  — path to card thumbnail image
+    //    youtubeId   (string)  — YouTube video ID shown in modal
+    //    image       (string)  — fallback modal image if no youtubeId
+    //    emoji       (string)  — placeholder emoji if no thumb
+    //    links       (object)  — { label: url, ... }
+    // ============================================================
+    const GAMES = [
+        {
+            title: "A Good Day to Pie",
+            year: "2026",
+            status: "In Development",
+            engine: "GameMaker",
+            role: "Solo Developer",
+            tags: ["Action", "GameMaker", "Steam"],
+            shortDesc: "An action-adventure sandbox game about base building and wave defense. Defend the Pie from Evil Pie-Stealing Gremlins!",
+            longDesc: `An action-adventure sandbox game about Base Building and Wave Defense. Defend the Pie from the horde of Evil Pie-Stealing Gremlins by exploring the regions, collecting resources, crafting equipment, and building defenses.
+
+My first official Steam release — fully solo-developed, including all design, art, music, sound, and programming.`,
+            thumb: "Images/agdtp_menu.png",
+            youtubeId: "BsnDDjLznH8",
+            links: {
+                "View on Steam": "https://store.steampowered.com/app/4186360/",
+                "itch.io": "https://jamsnack.itch.io/",
+            }
+        },
+        {
+            title: "Super Starbase",
+            year: "2022",
+            status: "Released",
+            engine: "GameMaker",
+            role: "Solo Developer",
+            tags: ["Strategy", "GameMaker", "itch.io"],
+            shortDesc: "A space base-building strategy game.",
+            longDesc: `A space base-building strategy game released on itch.io.
+
+Solo-developed with original art, music, and programming.`,
+            thumb: "Images/starbase_card.png",
+            image: "Images/starbase_1.png",
+            emoji: "🚀",
+            links: {
+                "Play on itch.io": "https://jamsnack.itch.io/",
+            }
+        }
+    ];
+    // ============================================================
+
+    // Gather all unique tags
+    const allTags = ["All", ...new Set(GAMES.flatMap(g => g.tags || []))];
+
+    let activeFilter = "All";
+
+    // ── Build filter buttons ──
+    const filterBar = document.getElementById("filterBar");
+    allTags.forEach(tag => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn" + (tag === "All" ? " active" : "");
+        btn.textContent = tag;
+        btn.addEventListener("click", () => {
+            activeFilter = tag;
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderGrid();
+        });
+        filterBar.appendChild(btn);
+    });
+
+    // ── Render grid ──
+    function renderGrid() {
+        const grid = document.getElementById("portfolioGrid");
+        grid.innerHTML = "";
+        const filtered = activeFilter === "All"
+            ? GAMES
+            : GAMES.filter(g => (g.tags || []).includes(activeFilter));
+
+        filtered.forEach((game, idx) => {
+            const card = document.createElement("div");
+            card.className = "portfolio-card";
+            card.setAttribute("tabindex", "0");
+            card.setAttribute("role", "button");
+            card.setAttribute("aria-label", "View details for " + game.title);
+
+            const media = game.thumb
+                ? `<img class="portfolio-card__thumb" src="${game.thumb}" alt="${game.title}" loading="lazy">`
+                : `<div class="portfolio-card__thumb--placeholder">${game.emoji || "🎮"}</div>`;
+
+            const tags = (game.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+
+            card.innerHTML = `
+                ${media}
+                <div class="portfolio-card__body">
+                    <div class="portfolio-card__year">${game.year}${game.status ? " &mdash; " + game.status : ""}</div>
+                    <div class="portfolio-card__title">${game.title}</div>
+                    <div class="portfolio-card__desc">${game.shortDesc}</div>
+                    <div class="tag-row">${tags}</div>
+                </div>`;
+
+            card.addEventListener("click", () => openModal(game));
+            card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openModal(game); });
+            grid.appendChild(card);
+        });
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `<p style="color:var(--c_muted); grid-column:1/-1;">No games match this filter.</p>`;
+        }
+    }
+
+    // ── Modal ──
+    function openModal(game) {
+        const overlay = document.getElementById("modalOverlay");
+        const content = document.getElementById("modalContent");
+
+        let mediaHtml;
+        if (game.youtubeId) {
+            mediaHtml = `<div class="modal__media"><iframe src="https://www.youtube.com/embed/${game.youtubeId}" title="${game.title} trailer" allowfullscreen></iframe></div>`;
+        } else if (game.image) {
+            mediaHtml = `<img class="modal__media" src="${game.image}" alt="${game.title}">`;
+        } else if (game.thumb) {
+            mediaHtml = `<img class="modal__media" src="${game.thumb}" alt="${game.title}">`;
+        } else {
+            mediaHtml = `<div class="modal__media--placeholder">${game.emoji || "🎮"}</div>`;
+        }
+
+        const details = [
+            game.engine && { label: "Engine", value: game.engine },
+            game.role   && { label: "Role", value: game.role },
+            game.year   && { label: "Year", value: game.year },
+            game.status && { label: "Status", value: game.status },
+        ].filter(Boolean);
+
+        const detailHtml = details.length ? `
+            <div class="modal__detail-grid">
+                ${details.map(d => `
+                    <div class="modal__detail">
+                        <div class="modal__detail-label">${d.label}</div>
+                        <div class="modal__detail-value">${d.value}</div>
+                    </div>`).join("")}
+            </div>` : "";
+
+        const tags = (game.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+
+        const linksHtml = game.links ? `
+            <div class="modal__links">
+                ${Object.entries(game.links).map(([label, url]) =>
+                    `<a class="btn btn-primary" href="${url}" target="_blank">${label}</a>`
+                ).join("")}
+            </div>` : "";
+
+        content.innerHTML = `
+            ${mediaHtml}
+            <div class="modal__body">
+                <div class="modal__meta">${game.year}${game.status ? " &mdash; " + game.status : ""}</div>
+                <h2 class="modal__title">${game.title}</h2>
+                ${detailHtml}
+                <p class="modal__desc">${(game.longDesc || game.shortDesc).replace(/\n/g, "<br>")}</p>
+                <div class="tag-row" style="margin-bottom:1.25rem">${tags}</div>
+                ${linksHtml}
+            </div>`;
+
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        document.getElementById("modalClose").focus();
+    }
+
+    function closeModal() {
+        document.getElementById("modalOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+    }
+
+    document.getElementById("modalClose").addEventListener("click", closeModal);
+    document.getElementById("modalOverlay").addEventListener("click", e => {
+        if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+    // ── Init ──
+    renderGrid();
+    </script>
+
+</body>
+</html>
