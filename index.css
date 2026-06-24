@@ -208,6 +208,31 @@ body {
     margin-bottom: 1rem;
 }
 
+.featured-game--barry {
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-game--barry::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    width: 55%;
+    background-image: url('Images/barry_stare.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.featured-game--barry > * {
+    position: relative;
+    z-index: 1;
+}
+
 .steam-widget-wrap {
     overflow-x: auto;
     margin-top: 1rem;
