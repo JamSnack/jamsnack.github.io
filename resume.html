@@ -1,55 +1,127 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Resume — James Ragan</title>
     <link href="index.css" rel="stylesheet">
-  </head>
+</head>
+<body>
 
+    <header class="site-header">
+        <div class="site-title">JamSnack</div>
+        <div class="site-subtitle">James Ragan &mdash; Game Developer &amp; Creative</div>
+    </header>
 
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#games">Games</a></li>
+            <li><a href="resume.html" class="active">Resume</a></li>
+            <!--<li><a href="art.html">Artwork</a></li>-->
+            <li><a href="https://github.com/JamSnack" target="_blank">GitHub</a></li>
+            <li><a href="https://jamsnack.itch.io/" target="_blank">itch.io</a></li>
+            <li><a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></li>
+        </ul>
+    </nav>
 
-    <body>
-        <h1 class="primary_title">Resume</h1>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Resume</h2>
 
-        <nav style="display: flex; justify-content: center;">
-        <a href="index.html">Home</a>
-        </nav>
+                <div class="link-row" style="margin-bottom: 2rem;">
+                    <a class="btn btn-ghost" href="https://jamsnack.itch.io/" target="_blank">&#x1F3AE; itch.io Portfolio</a>
+                    <a class="btn btn-ghost" href="https://github.com/JamSnack" target="_blank">&#x1F4BB; GitHub</a>
+                </div>
 
-        <div class="menu_main" style="font-family:'Times New Roman', Times, serif">
-            <h3>Education</h3>
-            <p>
-            <b>The University of Mississippi</b>, <i>Oxford</i>, <i>MS</i><br>				
-            <b>Bachelor of Science</b> in <b>Computer Science</b>. GPA: 3.4<br>
-            <i>Honored by Upsilon Pi Epsilon</i>
-            </p>
+                <!-- Education -->
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div class="resume-entry">
+                        <div class="resume-entry-header">
+                            <h4>Bachelor of Science &mdash; Computer Science</h4>
+                        </div>
+                        <p><strong>The University of Mississippi</strong>, Oxford, MS</p>
+                        <p>GPA: 3.4 &bull; Honored by Upsilon Pi Epsilon (CS Honor Society)</p>
+                    </div>
+                </div>
 
-            <h3>Experience</h3>
-            <div style="display: flex; justify-content: space-between;">
-                <h4>Game Developer</h4>
-                <h5>September 2014 - Current Day</h5>
+                <!-- Experience -->
+                <div class="resume-section">
+                    <h3>Experience</h3>
+
+                    <div class="resume-entry">
+                        <div class="resume-entry-header">
+                            <h4>Game Developer</h4>
+                            <span class="date">September 2014 &mdash; Present</span>
+                        </div>
+                        <p><em>Self-Employed / Hobbyist / Contract Work</em></p>
+                        <ul>
+                            <!--
+                            <li>13 solo-developed and released games across itch.io and Steam.</li>
+                            <li>3 team-developed and released games.</li>-->
+                            <li>Full-pipeline ownership: game design, programming, sound design, music composition, and 2D art.</li>
+                            <li>Steamworks experience with Steam Networking, game publishing, key art design, and API integration.</li>
+                            <li>Professional experience in GameMaker and Godot; working knowledge of Unity.</li>
+                            <li>Social Media Marketing on YouTube, TikTok, and Instagram.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="resume-section">
+                    <h3>Skills</h3>
+                    <div class="resume-entry">
+                        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--c_accent);">Languages &amp; Web</p>
+                        <div class="skills-grid">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">GML</span>
+                            <span class="skill-tag">GD Script</span>
+                        </div>
+                        <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: var(--c_accent);">Tools &amp; Platforms</p>
+                        <div class="skills-grid">
+                            <span class="skill-tag">GameMaker</span>
+                            <span class="skill-tag">Godot</span>
+                            <span class="skill-tag">Unity</span>
+                            <span class="skill-tag">Steamworks</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">IT / IPSec</span>
+                            <span class="skill-tag">Claude Code</span>
+                            <span class="skill-tag">Roblox Studio</span>
+                        </div>
+                        <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: var(--c_accent);">Game Development</p>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Game Design</span>
+                            <span class="skill-tag">Production Management</span>
+                            <span class="skill-tag">Gameplay Programming</span>
+                            <span class="skill-tag">Gameplay Testing & Debugging</span>
+                            <span class="skill-tag">Sound Design</span>
+                            <span class="skill-tag">Music Composition</span>
+                            <span class="skill-tag">2D Art</span>
+                            <span class="skill-tag">Steam Publishing</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <p>
-            <i>Self Employed/Hobbyist/Contract Work</i><br>
-            ● Game Design, Programming, Sound Design, Music, and Art.<br>
-            ● 13 solo developed and released games.<br>
-            ● 3 team developed and released games.<br>
-            ● Experience with Steamworks publishing and API.<br>
-            ● Professional work in GameMaker and Godot. Some experience with Unity.<br>
-            ● Portfolios: https://jamsnack.itch.io/ and https://github.com/JamSnack<br>
+        </section>
+    </main>
 
-            </p>
+    <footer class="site-footer">
+        <p>&copy; 2026 James Ragan &mdash; <a href="https://jamsnack.itch.io/" target="_blank">itch.io</a> &bull; <a href="https://github.com/JamSnack" target="_blank">GitHub</a> &bull; <a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></p>
+    </footer>
 
-            <h3>Skills</h3>
-            <i>HTML, CSS, JavaScript, React, Java, SQL, AWS, Git, IT, IPSec, Java, GML, Python, R, C, C#, Game
-            Design, Game Production, Steamworks Publishing & API</i>
-
-            <br><br><i>.... Work in progress!</i>
-        </div>
-
-    </body>
+</body>
 </html>

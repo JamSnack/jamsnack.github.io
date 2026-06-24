@@ -1,74 +1,120 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>James Ragan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>James Ragan — Game Developer</title>
     <link href="index.css" rel="stylesheet">
-  </head>
+</head>
+<body>
 
+    <header class="site-header">
+        <div class="site-title">JamSnack</div>
+        <div class="site-subtitle">James Ragan &mdash; Game Developer &amp; Creative</div>
+    </header>
 
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html#games">Games</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <!--<li><a href="art.html">Artwork</a></li>-->
+            <li><a href="https://github.com/JamSnack" target="_blank">GitHub</a></li>
+            <li><a href="https://jamsnack.itch.io/" target="_blank">itch.io</a></li>
+            <li><a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></li>
+        </ul>
+    </nav>
 
-    <body>
-        <h1 class="primary_title">JamSnack</h1>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-        <nav style="display: flex; justify-content: center; overflow:auto">
-            <a href="resume.html">Resume</a>
-            <a href="https://github.com/JamSnack" target="_blank">Github</a>
-            <a href="https://jamsnack.itch.io/" target="_blank">Games</a>
-            <a href="art.html">Artwork</a>
-            <a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a>
-        </nav>
-
-        <div class="menu_main">
-            <h3>About This Site</h3>
-            <p>
-                Hi! My name is James Ragan. I am a Game Developer based in Mississippi with a great love for many creative hobbies. This site is my attempt at organizing a portrayal of such things.
-                <br><br>Here, you will find a collection of my various works. This site is currently a work in progress, and my future plan is to host all of my work here.
-                <br><br>Enjoy your stay!
-
-            </p>
-
-            <div class="menu_important">
-                <p><b>Employers</b> can find my <b>resume</b> and <b>other portfolios</b> using the <b>navbar</b> at the top of the site.</p>
-            </div>
-
-
-            <br><br>
-            <h4>A Good Day to Pie, coming to Steam 2026!</h4>
-            <iframe src="https://store.steampowered.com/widget/4186360/" frameborder="0" width="646" height="190" style="margin: auto"></iframe>
-        </div>
-
-        <!--
-        <div class="menu_main">
-            <h3>Current Projects</h3>
-            <div class = "d-flex justify-content-center" style="display: flex">
-                <div style="display: flex">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="Images/starbase_card.png" alt="" / >
-                        <div class="card-body">
-                        <h3 style="text-align: center">Super Starbase</h3>
-                        <p>Super Starbase is my most advanced sandbox game yet!</p>
-                        <a class="card-link" href="https://jamsnack.itch.io/super-starbase">Itch.io</a>
+    <main>
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <p class="about-bio">
+                    Hi! I'm James Ragan, a game developer based in Mississippi with over a decade of experience making games.
+                    I handle the full stack of game development — design, programming, art, music, and sound — and I love bringing creative ideas to life -
+                    from first pixel to final release!
+                </p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Focus</h3>
+                        <p>Game Design &bull; Programming &bull; Sound &amp; Music &bull; 2D Art</p>
                     </div>
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="Images/agdtp_menu.png" alt="" / >
-                    <div class="card-body">
-                        <h3 style="text-align: center">A Good Day to Pie</h3>
-                        <p>A Good Day to Pie is in progress to becoming my first officially published steam game!</p>
-                        <a class="card-link" href="https://jamsnack.itch.io/super-starbase">Itch.io</a>
+                    <div class="about-card">
+                        <h3>Tools</h3>
+                        <p>GameMaker &bull; Godot &bull; Unity &bull; Steamworks</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Released Games</h3>
+                        <p>13 solo-developed &bull; 3 team-developed</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Contact</h3>
+                        <p>
+                            <a href="https://github.com/JamSnack" target="_blank">github.com/JamSnack</a><br>
+                            <a href="https://jamsnack.itch.io/" target="_blank">jamsnack.itch.io</a>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-        -->
+        </section>
 
+        <!-- GAMES -->
+        <section class="section" id="games">
+            <div class="container">
+                <h2 class="section-title">Games</h2>
 
-    </body>
+                <!-- Featured: A Good Day to Pie -->
+                <div class="featured-game">
+                    <div class="game-meta">&#x2605; Featured &mdash; Coming to Steam 2026</div>
+                    <h3>A Good Day to Pie</h3>
+                    <p>
+                        An upcoming action game coming to Steam in 2026. Solo-developed, featuring original design,
+                        art, music, and programming by James Ragan.
+                    </p>
+                    <div class="link-row">
+                        <a class="btn btn-primary" href="https://store.steampowered.com/app/4186360/" target="_blank">View on Steam</a>
+                    </div>
+                    <div class="steam-widget-wrap">
+                        <iframe src="https://store.steampowered.com/widget/4186360/" frameborder="0" width="646" height="190"></iframe>
+                    </div>
+                </div>
+
+                <!-- Game cards -->
+                <div class="games-grid">
+                    <a class="game-card" href="https://jamsnack.itch.io/" target="_blank">
+                        <div class="game-card-img-placeholder">&#x1F3AE;</div>
+                        <div class="game-card-body">
+                            <h4>More Games on itch.io</h4>
+                            <p>Browse all 13+ solo-developed titles on my itch.io page.</p>
+                        </div>
+                    </a>
+                    <a class="game-card" href="https://github.com/JamSnack" target="_blank">
+                        <div class="game-card-img-placeholder">&#x1F4BB;</div>
+                        <div class="game-card-body">
+                            <h4>Open Source &amp; Projects</h4>
+                            <p>Source code, prototypes, and experimental projects on GitHub.</p>
+                        </div>
+                    </a>
+                    <a class="game-card" href="https://www.youtube.com/@JamSnack" target="_blank">
+                        <div class="game-card-img-placeholder">&#x25B6;</div>
+                        <div class="game-card-body">
+                            <h4>YouTube</h4>
+                            <p>Devlogs, trailers, and game footage on YouTube.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <a class="itch-cta" href="https://jamsnack.itch.io/" target="_blank">
+                    &#x1F3AE; See all games on itch.io
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 James Ragan &mdash; <a href="https://jamsnack.itch.io/" target="_blank">itch.io</a> &bull; <a href="https://github.com/JamSnack" target="_blank">GitHub</a> &bull; <a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a></p>
+    </footer>
+
+</body>
 </html>
