@@ -14,7 +14,11 @@
 
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
 html { scroll-behavior: smooth; }
 
@@ -58,9 +62,9 @@ img-james {
 }
 
 .site-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 5rem;/*clamp(2.5rem, 6vw, 4rem);*/
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 8px;
     color: #fff;
     text-shadow: 0 0 40px rgba(59,130,246,0.6);
     position: relative;
@@ -68,7 +72,7 @@ img-james {
 
 .site-subtitle {
     color: var(--c_muted);
-    font-size: 1.1rem;
+    font-size: 1.9rem;
     margin-top: 0.4rem;
     position: relative;
 }
@@ -99,7 +103,7 @@ img-james {
     padding: 1rem 1.25rem;
     color: var(--c_muted);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1.9rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     transition: color 0.2s;
@@ -162,7 +166,7 @@ img-james {
 }
 
 .about-card h3 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--c_accent);
     margin-bottom: 0.5rem;
@@ -172,7 +176,7 @@ img-james {
 
 .about-card p, .about-card a {
     color: var(--c_muted);
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     text-decoration: none;
 }
 
