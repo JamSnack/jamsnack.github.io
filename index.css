@@ -1,3 +1,4 @@
+
 :root {
     --c_bkg:      #0d1117;
     --c_surface:  #161b22;
@@ -10,6 +11,7 @@
     --c_danger:   #f85149;
     --radius:     8px;
     --shadow:     0 4px 24px rgba(0,0,0,0.5);
+
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,9 +21,11 @@ html { scroll-behavior: smooth; }
 body {
     background-color: var(--c_bkg);
     color: var(--c_text);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
+    /* font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; */
+    font-family: myFont;
+    line-height: 1.0;
     min-height: 100vh;
+    font-size: 2.0rem;
 }
 
 img-james {
@@ -29,6 +33,11 @@ img-james {
 }
 
 /* ── HEADER / HERO ── */
+@font-face {
+  font-family: myFont; /* set name */
+  src: url(EXEPixelPerfect.ttf); /* url of the font */
+}
+
 .site-header {
     background: linear-gradient(135deg, #0d1117 0%, #1a1040 50%, #0d1117 100%);
     border-bottom: 1px solid var(--c_border);
@@ -36,15 +45,8 @@ img-james {
     text-align: center;
     position: relative;
     overflow: hidden;
-
-    /*
-    background-image: url("Images/james.jpg");
-    background-position-x: 5%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: 25%;
-    background-position-x: -25rem;
-    */
+    font-family: myFont;
+    letter-spacing: 1px;
 }
 
 .site-header::before {
@@ -58,7 +60,7 @@ img-james {
 .site-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
     color: #fff;
     text-shadow: 0 0 40px rgba(59,130,246,0.6);
     position: relative;
@@ -217,7 +219,7 @@ img-james {
 
 .featured-game p {
     color: var(--c_muted);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     margin-bottom: 1rem;
 }
 
