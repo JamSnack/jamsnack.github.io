@@ -29,8 +29,10 @@ body {
     font-family: myFont;
     line-height: 1.0;
     min-height: 100vh;
-    font-size: 2.0rem;
+    font-size: 2.5rem;
 }
+
+b { font-weight: 600; }
 
 img-james {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%)
@@ -63,7 +65,7 @@ img-james {
 
 .site-title {
     font-size: 5rem;/*clamp(2.5rem, 6vw, 4rem);*/
-    font-weight: 800;
+    font-weight: 400;
     letter-spacing: 8px;
     color: #fff;
     text-shadow: 0 0 40px rgba(59,130,246,0.6);
@@ -104,7 +106,7 @@ img-james {
     color: var(--c_muted);
     text-decoration: none;
     font-size: 1.9rem;
-    font-weight: 500;
+    font-weight: 100;
     letter-spacing: 0.02em;
     transition: color 0.2s;
     border-bottom: 2px solid transparent;
@@ -132,7 +134,7 @@ img-james {
 
 .section-title {
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 100;
     color: var(--c_text);
     margin-bottom: 1.75rem;
     display: flex;
@@ -167,7 +169,7 @@ img-james {
 
 .about-card h3 {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 100;
     color: var(--c_accent);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -207,15 +209,15 @@ img-james {
 
 .featured-game h3 {
     font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: 100;
     margin-bottom: 0.25rem;
     color: var(--c_text);
 }
 
 .game-meta {
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     color: var(--c_highlight);
-    font-weight: 600;
+    font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.75rem;
@@ -223,7 +225,7 @@ img-james {
 
 .featured-game p {
     color: var(--c_muted);
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
 }
 
@@ -311,7 +313,7 @@ img-james {
 
 .game-card-body h4 {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 100;
     margin-bottom: 0.25rem;
     color: var(--c_text);
 }
@@ -330,7 +332,7 @@ img-james {
     background: #fa5c5c;
     color: #fff;
     border-radius: var(--radius);
-    font-weight: 600;
+    font-weight: 100;
     text-decoration: none;
     transition: opacity 0.2s;
 }
@@ -341,8 +343,8 @@ img-james {
 .resume-section + .resume-section { margin-top: 2rem; }
 
 .resume-section h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 100;
     color: var(--c_accent);
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -369,21 +371,21 @@ img-james {
 }
 
 .resume-entry-header h4 {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 100;
     color: var(--c_text);
 }
 
 .resume-entry-header .date {
-    font-size: 0.85rem;
+    font-size: 1.5rem;
     color: var(--c_highlight);
-    font-weight: 600;
+    font-weight: 100;
     white-space: nowrap;
 }
 
 .resume-entry p, .resume-entry li {
     color: var(--c_muted);
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     line-height: 1.7;
 }
 
@@ -405,7 +407,7 @@ img-james {
     border-radius: 20px;
     padding: 0.3rem 0.85rem;
     font-size: 0.82rem;
-    font-weight: 500;
+    font-weight: 100;
 }
 
 /* ── ART ── */
@@ -453,7 +455,7 @@ img-james {
     padding: 0.55rem 1.1rem;
     border-radius: var(--radius);
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 100;
     text-decoration: none;
     transition: opacity 0.2s;
 }
