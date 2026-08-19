@@ -1,3 +1,3 @@
-1. Post more art to instagram. Link from a "Art" navbar item to my instagram page. Store art in a harddrive.
-2. Create a React component for the navbar or find some other way to template it.
-
+1. Create a resume item that covers my current work at St. James Lighting as a programmer, IT professional, and Networking Engineer.
+2. Post more art to instagram. Link from a "Art" navbar item to my instagram page. Store art in a harddrive.
+3. Create a React component for the navbar or find some other way to template it.
