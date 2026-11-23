@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baseworld Blog</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-title">JamSnack</div>
+        <div class="site-subtitle">Solo Game Developer on a quest to make something cool.</div>
+    </header>
+
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://jamsnack.itch.io/">Games</a></li>
+            <li><a href="https://soundcloud.com/user-486143398">Music</a></li>
+            <li><a href="Blogs.html" class="active">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                
+                <img src="Images/BASEWORLD! Promo.png" style="max-width: 100%; max-height: 100vh; margin: auto;"></img>
+                <h2>// THE GODOT ARC;</h2>
+                <h2 class="section-title">November 15, 2026. 10:54 AM</h2>
+                <p>
+                In the last few weeks I made a pretty solid attempt at building my new design for BASEWORLD in Godot, and I learned a lot by doing it! For context, I have been using GameMaker for 15 years, and since I am restarting my game, I decided to use this as an opportunity to try out Godot. The TL;DR is that it's pretty cool! But I still really like GameMaker...
+                <br><br>
+                The first thing I did was re-create my messed up render pipeline that I use in GameMaker. The idea is simple, I render the game onto a surface that is 4x as small as the final render surface, scale it up to match the final render surface (4x), and then apply an outline to the contents of that surface. The result is an outline over my pixel art comprised of pixels that are exactly 1/4th the size of everything else in the game without disrespecting the intended pixel-grid size. This was a total PAIN in Godot, but I ended up getting it done without really understanding how it worked ( and leaning on my good friend Zandy's shoulder ), and I guess that's just what happens when you are given really powerful tools like Nodes that just do a ton of stuff out of the box - you only have to mess with some levers until you get what you want...
+                <br><br>
+                I got to experiment with the Skeletal Animation system, which is not really something that GameMaker supports. It's really cool!
+                </p>
+                <br>
+                <div style="flex: auto;">
+                    <img src="Images/head_spin.gif"/> <img width="300px" height="300px" src="Images/head_spine2.gif"/> <img width="300px" height="300px"  src="Images/bone_broke.gif" style="size:"/>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 James Ragan &mdash; <a href="https://jamsnack.itch.io/" target="_blank">itch.io</a> &bull; 
+            <a href="https://github.com/JamSnack" target="_blank">GitHub</a> &bull; 
+            <a href="https://www.youtube.com/@JamSnack" target="_blank">YouTube</a> &bull;
+            <a href ="https://www.linkedin.com/in/jamsnack" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+</body>
+</html>
